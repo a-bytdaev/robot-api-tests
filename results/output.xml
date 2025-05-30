@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.13.1 on darwin)" generated="2025-05-30T12:55:10.693867" rpa="false" schemaversion="5">
+<suite id="s1" name="App" source="/Users/a.bytdaev/Desktop/PR-LG/app">
+<suite id="s1-s1" name="Api Tet" source="/Users/a.bytdaev/Desktop/PR-LG/app/api_tet.robot">
+<test id="s1-s1-t1" name="Get User Data from API" line="6">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-05-30T12:55:10.750896" level="INFO">Creating Session using : alias=jsonplaceholder, url=https://jsonplaceholder.typicode.com/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>jsonplaceholder</arg>
+<arg>https://jsonplaceholder.typicode.com/</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-05-30T12:55:10.750565" elapsed="0.000558"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-05-30T12:55:11.344234" level="INFO">GET Request : url=https://jsonplaceholder.typicode.com/users/10 
+ path_url=/users/10 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-05-30T12:55:11.344518" level="INFO">GET Response : url=https://jsonplaceholder.typicode.com/users/10 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 30 May 2025 09:55:11 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Credentials': 'true', 'Cache-Control': 'max-age=43200', 'Etag': 'W/"1ff-2iureAUIawGXrTsK9ruBm43T5to"', 'Expires': '-1', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Pragma': 'no-cache', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=dDb2DyozXugdS0FPZBK3efDIc9FjgzLbBn78o7IRTUo%3D\\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\\u0026ts=1748579414"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=dDb2DyozXugdS0FPZBK3efDIc9FjgzLbBn78o7IRTUo%3D&amp;sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&amp;ts=1748579414"', 'Server': 'cloudflare', 'Vary': 'Origin, Accept-Encoding', 'Via': '2.0 heroku-router', 'X-Content-Type-Options': 'nosniff', 'X-Powered-By': 'Express', 'X-Ratelimit-Limit': '1000', 'X-Ratelimit-Remaining': '999', 'X-Ratelimit-Reset': '1748579439', 'Age': '19496', 'Cf-Cache-Status': 'HIT', 'Content-Encoding': 'gzip', 'CF-RAY': '947d5abbdca5bf7b-WAW', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={
+  "id": 10,
+  "name": "Clementina DuBuque",
+  "username": "Moriah.Stanton",
+  "email": "Rey.Padberg@karina.biz",
+  "address": {
+    "street": "Kattie Turnpike",
+    "suite": "Suite 198",
+    "city": "Lebsackbury",
+    "zipcode": "31428-2261",
+    "geo": {
+      "lat": "-38.2386",
+      "lng": "57.2232"
+    }
+  },
+  "phone": "024-648-3804",
+  "website": "ambrose.net",
+  "company": {
+    "name": "Hoeger LLC",
+    "catchPhrase": "Centralized empowering task-force",
+    "bs": "target end-to-end models"
+  }
+} 
+ </msg>
+<msg time="2025-05-30T12:55:11.344645" level="INFO">/Users/a.bytdaev/Desktop/PR-LG/app/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'jsonplaceholder.typicode.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-05-30T12:55:11.344884" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>jsonplaceholder</arg>
+<arg>/users/10</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-05-30T12:55:10.751455" elapsed="0.593514"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-05-30T12:55:11.345281" elapsed="0.000349"/>
+</kw>
+<kw name="To Json" owner="RequestsLibrary">
+<msg time="2025-05-30T12:55:11.345942" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2025-05-30T12:55:11.346741" level="INFO">To JSON using : content={
+  "id": 10,
+  "name": "Clementina DuBuque",
+  "username": "Moriah.Stanton",
+  "email": "Rey.Padberg@karina.biz",
+  "address": {
+    "street": "Kattie Turnpike",
+    "suite": "Suite 198",
+    "city": "Lebsackbury",
+    "zipcode": "31428-2261",
+    "geo": {
+      "lat": "-38.2386",
+      "lng": "57.2232"
+    }
+  },
+  "phone": "024-648-3804",
+  "website": "ambrose.net",
+  "company": {
+    "name": "Hoeger LLC",
+    "catchPhrase": "Centralized empowering task-force",
+    "bs": "target end-to-end models"
+  }
+} </msg>
+<msg time="2025-05-30T12:55:11.346814" level="INFO">To JSON using : pretty_print=False </msg>
+<msg time="2025-05-30T12:55:11.346900" level="INFO">${json} = {'id': 10, 'name': 'Clementina DuBuque', 'username': 'Moriah.Stanton', 'email': 'Rey.Padberg@karina.biz', 'address': {'street': 'Kattie Turnpike', 'suite': 'Suite 198', 'city': 'Lebsackbury', 'zipcode...</msg>
+<var>${json}</var>
+<arg>${response.content}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<status status="PASS" start="2025-05-30T12:55:11.345772" elapsed="0.001174"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['name']}</arg>
+<arg>Clementina DuBuque</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-05-30T12:55:11.347097" elapsed="0.000404"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-30T12:55:11.347975" level="INFO">Email пользователя: Rey.Padberg@karina.biz</msg>
+<arg>Email пользователя: ${json['email']}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-30T12:55:11.347676" elapsed="0.000393"/>
+</kw>
+<doc>Пример GET-запроса к JSONPlaceholder</doc>
+<status status="PASS" start="2025-05-30T12:55:10.750063" elapsed="0.598307"/>
+</test>
+<status status="PASS" start="2025-05-30T12:55:10.704803" elapsed="0.644018"/>
+</suite>
+<status status="PASS" start="2025-05-30T12:55:10.695659" elapsed="0.653659"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="App">App</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Api Tet">App.Api Tet</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-05-30T12:55:11.345942" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+</errors>
+</robot>
